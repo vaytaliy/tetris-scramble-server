@@ -90,13 +90,14 @@ app.get('/game', (req, res) => {
 });
 
 app.get('/', (req, res) => {
-    console.log(req.user);
-    if (!req.user) {
-        respUser = 'none'
-    } else {
-        respUser = req.user.username;
-    }
-    res.json({ message: 'ok', code: 200, user: respUser });
+    //console.log(req.user);
+    //if (!req.user) {
+    //    respUser = 'none'
+    //} else {
+    //    respUser = req.user.username;
+    //}
+    //res.json({ message: 'ok', code: 200, user: respUser });
+    res.send('Tetris scramble server');
 })
 
 //[TBD]add middleware that checks new user already exists/ checks to validate user name, passwords etc
