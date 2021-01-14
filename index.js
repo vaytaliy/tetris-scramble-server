@@ -17,14 +17,19 @@ const LocalStrategy = require('passport-local').Strategy;
 const registration = require('./routes/registration');
 const login = require('./routes/login');
 
+//====Set up of environment variables====
+
+const allowedOrigin = process.env.ALLOWED_ORIGIN || 'http://localhost:3000'
 const serverurl = process.env.SERVER_URL || 'localhost';
 const port = process.env.PORT || 8079;
+
+//=======================================
 
 require('dotenv').config();
 
 app.use(express.static('public'));
 
-app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
+app.use(cors({ origin: allowedOrigin, credentials: true }));
 // app.use(express.urlencoded({
 //     extended: false
 // }));
