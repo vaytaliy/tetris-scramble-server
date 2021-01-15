@@ -20,17 +20,17 @@ const login = require('./routes/login');
 //====Set up of environment variables====
 // set env allowed origin 
 
-const allowedOrigin = process.env.ALLOWED_ORIGIN || 'http://localhost:3000'
+const allowedOrigin = process.env.ALLOWED_ORIGIN || 'http://localhost:3000';
 const serverurl = process.env.SERVER_URL || 'localhost';
 const port = process.env.PORT || 8079;
 
 //=======================================
 
 require('dotenv').config();
-
+app.use(cors());
 app.use(express.static('public'));
 
-app.use(cors({ origin: allowedOrigin, credentials: true }));
+//app.use(cors({ origin: allowedOrigin, credentials: true }));
 // app.use(express.urlencoded({
 //     extended: false
 // }));
