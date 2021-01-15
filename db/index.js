@@ -1,11 +1,11 @@
 const { Pool, Client } = require('pg');
 
 const pool = new Pool({
-    user: 'vitaliy',
+    user: process.env.DATABASE_USER,
     host: process.env.DATABASE_URL,
     database: process.env.DATABASE_NAME,
-    password: process.env.PW1,       //this might be broken
-    port: process.env.PGPORT
+    password: process.env.DATABASE_PASSWORD,       //set up these parameters manually on local db environment
+    port: process.env.DATABASE_PORT
 })
 
 const queryTable = async (text, params) => {
