@@ -18,6 +18,7 @@ const registration = require('./routes/registration');
 const login = require('./routes/login');
 
 //====Set up of environment variables====
+// set env allowed origin 
 
 const allowedOrigin = process.env.ALLOWED_ORIGIN || 'http://localhost:3000'
 const serverurl = process.env.SERVER_URL || 'localhost';
