@@ -27,10 +27,9 @@ const port = process.env.PORT || 8079;
 //=======================================
 
 require('dotenv').config();
-app.use(cors());
 app.use(express.static('public'));
 
-//app.use(cors({ origin: allowedOrigin, credentials: true }));
+app.use(cors({ origin: allowedOrigin, credentials: true }));
 // app.use(express.urlencoded({
 //     extended: false
 // }));
