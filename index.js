@@ -32,7 +32,7 @@ app.use(express.static('public'));
 
 //app.use('**', createProxyMiddleware({ target: allowedOrigin, changeOrigin: true }));
 
-app.options('*',cors());
+app.use(cors({origin: allowedOrigin, credentials: true}));
 //app.use(cors({ origin: allowedOrigin, credentials: true}));
 // app.use(express.urlencoded({
 //     extended: false
@@ -100,14 +100,13 @@ app.get('/game', (req, res) => {
 });
 
 app.get('/', (req, res) => {
-    //console.log(req.user);
-    //if (!req.user) {
-    //    respUser = 'none'
-    //} else {
-    //    respUser = req.user.username;
-    //}
-    //res.json({ message: 'ok', code: 200, user: respUser });
-    res.send('Tetris scramble server');
+    console.log(req.user);
+    if (!req.user) {
+        respUser = 'none'
+    } else {
+        respUser = req.user.username;
+    }
+    res.json({ message: 'ok', code: 200, user: respUser });
 })
 
 //[TBD]add middleware that checks new user already exists/ checks to validate user name, passwords etc
