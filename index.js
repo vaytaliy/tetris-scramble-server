@@ -13,7 +13,7 @@ const db = require('./db/index');
 const passport = require('passport');
 //const CookieStrategy = require('passport-cookie');//dont need
 const LocalStrategy = require('passport-local').Strategy;
-//const { createProxyMiddleware } = require('http-proxy-middleware');
+const { createProxyMiddleware } = require('http-proxy-middleware');
 
 const registration = require('./routes/registration');
 const login = require('./routes/login');
@@ -30,7 +30,7 @@ const port = process.env.PORT || 8079;
 require('dotenv').config();
 app.use(express.static('public'));
 
-//app.use('**', createProxyMiddleware({ target: allowedOrigin, changeOrigin: true }));
+app.use('**', createProxyMiddleware({ target: allowedOrigin, changeOrigin: true }));
 
 app.use(cors({origin: allowedOrigin, credentials: true}));
 //app.use(cors({ origin: allowedOrigin, credentials: true}));
