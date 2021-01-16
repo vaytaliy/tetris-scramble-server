@@ -21,7 +21,7 @@ const login = require('./routes/login');
 //====Set up of environment variables====
 // set env allowed origin 
 
-const allowedOrigin = process.env.ALLOWED_ORIGIN || 'http://localhost:8079';
+const allowedOrigin = 'https://tetriscramble.herokuapp.com';
 const serverurl = process.env.SERVER_URL || 'localhost';
 const port = process.env.PORT || 8079;
 
