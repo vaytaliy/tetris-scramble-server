@@ -31,7 +31,7 @@ require('dotenv').config();
 app.use(express.static('public'));
 
 //app.use('**', createProxyMiddleware({ target: allowedOrigin, changeOrigin: true }));
-app.use(cors({ origin: allowedOrigin, credentials: true }));
+app.use(cors({ origin: allowedOrigin}));
 // app.use(express.urlencoded({
 //     extended: false
 // }));
@@ -45,16 +45,6 @@ app.use(cookieSession({
     keys: [process.env.KEY1 + ''],
     maxAge: 1000 * 60 * 24 * 10,
 }))
-
-app.use(function (req, res, next) {
-
-    res.setHeader('Access-Control-Allow-Origin', allowedOrigin);
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-    res.setHeader('Access-Control-Allow-Credentials', true);
-
-    next();
-});
 
 app.use(passport.initialize());
 app.use(passport.session());
