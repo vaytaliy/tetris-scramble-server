@@ -32,7 +32,8 @@ app.use(express.static('public'));
 
 //app.use('**', createProxyMiddleware({ target: allowedOrigin, changeOrigin: true }));
 
-app.use(cors({origin: allowedOrigin, credentials: true}));
+app.use(cors());
+//app.use(cors({origin: allowedOrigin, credentials: true}));
 //app.use(cors({ origin: allowedOrigin, credentials: true}));
 // app.use(express.urlencoded({
 //     extended: false
