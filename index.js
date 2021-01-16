@@ -30,7 +30,7 @@ const port = process.env.PORT || 8079;
 require('dotenv').config();
 app.use(express.static('public'));
 
-app.use('**', createProxyMiddleware({ target: allowedOrigin, changeOrigin: true }));
+//app.use('**', createProxyMiddleware({ target: allowedOrigin, changeOrigin: true }));
 
 app.use(cors({origin: allowedOrigin, credentials: true}));
 //app.use(cors({ origin: allowedOrigin, credentials: true}));
